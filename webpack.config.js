@@ -60,7 +60,10 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('bundle.css', { allChunks: true }),
-    
-   
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity
+    }),
   ]
 };
